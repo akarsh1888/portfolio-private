@@ -13,10 +13,19 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
+            
+            - name: Setup Node.js
+              uses: actions/setup-node@v2
+              with:
+                node-version: 18
+                registry-url: https://registry.npmjs.org
+                cache: 'npm'
 
             - name: Install dependencies
-              run: npm i
+              run: npm ci
+
             - name: Run test
               run: npm run test
+
             - name: Build packages
               run: npm run build
