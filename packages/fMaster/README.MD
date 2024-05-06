@@ -18,6 +18,11 @@
 - Integration Tests
     - two services talking to each other, many components working together, mocking API calls
 - End to End Tests
+- Regression
+- Integration
+- Penetration
+- i18n Testing
+- a11y Testing
 
 `Assertion`
 - A thing that you’d ideally like to be true and should totally throw an error if that’s not the case
@@ -33,6 +38,9 @@
 
 
 <!-- 
-f616838635e44aa5ba5af967923ef33f
-ssh -i Devops_Project_Key2.pem ec2-user@65.0.182.179
+ssh -i Devops_Project_Key2.pem ec2-user@43.205.120.108
+sudo su - 
+service jenkins status
+service jenkins start
+admin/f616838635e44aa5ba5af967923ef33f (Jenkins Server)ß
  -->

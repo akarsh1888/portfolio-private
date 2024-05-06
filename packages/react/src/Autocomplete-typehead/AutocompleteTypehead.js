@@ -1,32 +1,5 @@
 import React, { useCallback, useState } from "react";
 
-const allCities = [
-  "Amsterdam",
-  "Berlin",
-  "London",
-  "New York",
-  "Paris",
-  "Rome",
-  "San Francisco",
-  "Tokyo",
-  "Washington DC",
-  "Zurich",
-  "Copenhagen",
-  "Helsinki",
-  "Madrid",
-  "Reykjavik",
-  "Stockholm",
-  "Vancouver",
-  "Vienna",
-  "Zagreb",
-  "Budapest",
-  "Dublin",
-  "Hamburg",
-  "Krakow",
-  "Lisbon",
-  "Ljubljana",
-];
-
 export default function AutocompleteTypehead() {
   const [filteredCities, setFilteredCities] = useState(allCities);
   const [searchQuery, setSearchQuery] = useState("");

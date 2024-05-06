@@ -23,36 +23,36 @@ export default function InfiniteScroll() {
   const [query, setQuery] = useState('');
   const controllerRef = useRef(null);
   const pageNumberRef = useRef(1);
-  const observerRef = useRef(null);
+  // const observerRef = useRef(null);
 
-  const lastElementObserver = useCallback((domNode) => {
-    // remove the existing observer first
-    if (observerRef.current) observerRef.current.disconnect();
+  // const lastElementObserver = useCallback((domNode) => {
+  //   // remove the existing observer first
+  //   if (observerRef.current) observerRef.current.disconnect();
 
-    // create a new observer
-    observerRef.current = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        pageNumberRef.current+=1;
-        getData(query, pageNumberRef.current);
-      }
-    });
+  //   // create a new observer
+  //   observerRef.current = new IntersectionObserver((entries) => {
+  //     if (entries[0].isIntersecting) {
+  //       pageNumberRef.current+=1;
+  //       getData(query, pageNumberRef.current);
+  //     }
+  //   });
 
-    // attach this observer
-    if (domNode) {
-      observerRef.current.observe(domNode)
-    }
-  },[query]);
+  //   // attach this observer
+  //   if (domNode) {
+  //     observerRef.current.observe(domNode)
+  //   }
+  // },[query]);
 
   useEffect(() => {
     getData(query, pageNumberRef.current);
   }, [query]);
 
-  useEffect(() => {
-    return () => {
-      if (controllerRef.current) controllerRef.current.abort();
-      if (observerRef.current) observerRef.current.disconnect();
-    };
-  }, []);
+  // useEffect(() => {
+  //   return () => {
+  //     if (controllerRef.current) controllerRef.current.abort();
+  //     if (observerRef.current) observerRef.current.disconnect();
+  //   };
+  // }, []);
 
   const handleInputChange = useCallback((e) => {
     setQuery(e.target.value);
@@ -80,7 +80,7 @@ export default function InfiniteScroll() {
         <ul>
           {data.map(({ title }, idx) => {
             if (idx === data.length - 1) {
-              return <li ref={lastElementObserver} key={idx}>{title}</li>;
+              return <li key={idx}>{title}</li>;
             }
             return <li key={idx}>{title}</li>;
           })}
